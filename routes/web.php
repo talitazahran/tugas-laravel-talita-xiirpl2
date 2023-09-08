@@ -18,9 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/buku', [PerpustakaanController::class, 'buku']);
+Route::get('/buku', [PerpustakaanController::class, 'buku'])->name('get_buku');
 
-Route::get('/petugas', [PerpustakaanController::class, 'petugas']);
+Route::get('/petugas', [PerpustakaanController::class, 'petugas'])->name('get_petugas');
 
-Route::get('/anggota', [PerpustakaanController::class, 'anggota']);
+Route::get('/anggota', [PerpustakaanController::class, 'anggota'])->name('get_anggota');
 
+Route::get('/welcome', [PerpustakaanController::class, 'welcome'])->name('get_welcome');
