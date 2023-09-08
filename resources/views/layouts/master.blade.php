@@ -23,11 +23,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="wrapper">
 
         <!-- Navbar -->
-        @include('navbar')
+        @include('subviews.header')
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        @include('sidebar')
+        @include('subviews.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
 
@@ -35,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-        @include('footer')
+        @include('subviews.footer')
     </div>
     <!-- ./wrapper -->
 
