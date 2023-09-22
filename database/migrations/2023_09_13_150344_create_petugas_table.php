@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('petugas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_petugas');
-            $table->string('jabatan_petugas');
-            $table->string('tlp_petugas');
-            $table->string('alamat_petugas');
+            $table->string('nama_petugas', 50);
+            $table->string('jabatan_petugas', 50);
+            $table->char('tlp_petugas', 13);
+            $table->string('alamat_petugas', 100);
             $table->timestamps();
         });
     }

@@ -33,7 +33,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/anggota/create" class="nav-link">
+          <a href="{{ route('anggota.index') }}" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Form Anggota
@@ -49,7 +49,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/petugas/create" class="nav-link">
+          <a href="{{ route('petugas.index') }}" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Form Petugas

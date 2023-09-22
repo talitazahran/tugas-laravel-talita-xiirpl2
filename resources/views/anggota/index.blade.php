@@ -1,8 +1,6 @@
 @extends('master')
 
 @section('title', 'Data Anggota')
-
-
 @section('content')
 
 @push('css')
@@ -44,13 +42,10 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Id</th>
                                     <th>Kode</th>
                                     <th>Nama</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Jurusan</th>
-                                    <th>Telepon</th>
-                                    <th>Alamat</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -58,17 +53,18 @@
                                 @forelse ($anggota as $key => $value)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $value->id }}</td>
                                     <td>{{ $value->kode }}</td>
                                     <td>{{ $value->nama }}</td>
                                     <td>{{ $value->jk }}</td>
                                     <td>{{ $value->jurusan }}</td>
-                                    <td>{{ $value->tlp }}</td>
-                                    <td>{{ $value->alamat }}</td>
-                                    <td>
-                                        <a href="" class="btn-sm btn-info">Show</a>
-                                        <a href="" class="btn-sm btn-warning">Edit</a>
-                                        <a href="" class="btn-sm btn-danger">Delete</a>
+                                    <td class="d-flex justify-content-center">
+                                        <form action="{{ route('anggota.destroy', $value->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('anggota.show', $value->id) }}" class="btn-sm btn-info">Show</a>
+                                            <a href="{{ route('anggota.edit', $value->id) }}" class="btn-sm btn-warning">Edit</a>
+                                            <button class="btn-sm btn-danger">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
 
@@ -79,6 +75,9 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        <div class="d-flex ml-3 mb-3">
+                            <a href="{{ route('anggota.create') }}" class="btn btn-primary">Create Anggota</a>
+                        </div>
                     </div>
                 </div>
             </div>

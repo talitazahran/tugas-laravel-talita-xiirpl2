@@ -16,6 +16,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.css') }}">
+
+  @stack('css')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -41,6 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin/dist/js/adminlte.js') }}"></script>
+    @stack('script')
 </body>
 
 </html>

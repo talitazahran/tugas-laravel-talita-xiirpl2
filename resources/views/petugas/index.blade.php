@@ -1,14 +1,13 @@
 @extends('master')
 
 @section('title', 'Data Petugas')
-
-
 @section('content')
 
 @push('css')
 <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+{{-- <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}"> --}}
 @endpush
 
 
@@ -44,12 +43,10 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Id Petugas</th>
                                     <th>Nama Petugas</th>
                                     <th>Jabatan</th>
-                                    <th>Telepon Petugas</th>
-                                    <th>Alamat Petugas</th>
-                                    <th>Action</th>
+                                    <th>No Telepon</th>
+                                    <th class="text-center">Action</th>
 
                                 </tr>
                             </thead>
@@ -57,19 +54,37 @@
                                 @forelse ($petugas as $key => $value)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $value->id}}</td>
                                     <td>{{ $value->nama_petugas }}</td>
                                     <td>{{ $value->jabatan_petugas }}</td>
                                     <td>{{ $value->tlp_petugas }}</td>
-                                    <td>{{ $value->alamat_petugas }}</td>
-
-                                    <td>
-                                        <a href="" class="btn-sm btn-info">Show</a>
-                                        <a href="" class="btn-sm btn-warning">Edit</a>
-                                        <a href="" class="btn-sm btn-danger">Delete</a>
+                                    <td class="d-flex justify-content-center">
+                                        <a href="{{ route('petugas.show', $value->id) }}" class="btn btn-sm btn-info">Show</a>
+                                        <a href="{{ route('petugas.edit', $value->id) }}" class="btn btn-sm btn-warning mx-3">Edit</a>
+                                        <form action="{{ route('petugas.destroy', $value->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Data Petugas?</h1>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Data yang dihapus tidak bisa dikembalikan.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- modal --}}
+                                        </form>
                                     </td>
                                 </tr>
-
                                 @empty
                                 <tr>
                                     <td>Data Masih Kosong</td>
@@ -77,6 +92,9 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        <div class="d-flex ml-3 mb-3">
+                            <a href="{{ route('petugas.create') }}" class="btn btn-primary">Create Petugas</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -89,6 +107,7 @@
 
 
 @push('script')
+<script src="{{ asset('bootstrap/js/bootstrap.bundle.js') }}"></script>
 <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>

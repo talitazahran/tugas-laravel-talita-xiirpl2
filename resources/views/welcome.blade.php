@@ -22,18 +22,18 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <div class="row">
+            <div class="col">
 
                 <!-- /.col-md-6 -->
-                <div class="col-lg-6">
+                <div class="col-lg-3">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="m-0">Data Anggota</h5>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-title">Lorem ipsum dolor sit amet.</h6>
+                            {{-- <h6 class="card-title"></h6> --}}
 
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, sequi?</p>
+                            {{-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, sequi?</p> --}}
                             <a href="/anggota" class="btn btn-primary">Click me</a>
                         </div>
                     </div>
@@ -43,8 +43,8 @@
                             <h5 class="m-0">Data Buku</h5>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-title">Lorem ipsum dolor sit amet.</h6>
-                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, asperiores!</p>
+                            {{-- <h6 class="card-title">Lorem ipsum dolor sit amet.</h6> --}}
+                            {{-- <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, asperiores!</p> --}}
                             <a href="/buku" class="btn btn-primary">Click me</a>
                         </div>
                     </div>
@@ -54,8 +54,8 @@
                             <h5 class="m-0">Data Petugas</h5>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-title">Lorem ipsum dolor sit amet.</h6>
-                            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, asperiores!</p>
+                            {{-- <h6 class="card-title">Lorem ipsum dolor sit amet.</h6> --}}
+                            {{-- <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus, asperiores!</p> --}}
                             <a href="/petugas" class="btn btn-primary">Click me</a>
                         </div>
                     </div>

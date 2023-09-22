@@ -30,23 +30,23 @@ class BukuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id' => 'required',
-            'kode' => 'required',
-            'judul' => 'required',
-            'penulis' => 'required',
-            'penerbit' => 'required',
+            'id'           => 'required',
+            'kode'         => 'required',
+            'judul'        => 'required',
+            'penulis'      => 'required',
+            'penerbit'     => 'required',
             'tahun_terbit' => 'required',
-            'stok' => 'required',
+            'stok'         => 'required',
         ]);
 
         $query = DB::table('buku')->insert([
-            'id' => $request['id'],
-            'kode' => $request['kode'],
-            'judul' => $request['judul'],
-            'penulis' => $request['penulis'],
-            'penerbit' => $request['penerbit'],
+            'id'           => $request['id'],
+            'kode'         => $request['kode'],
+            'judul'        => $request['judul'],
+            'penulis'      => $request['penulis'],
+            'penerbit'     => $request['penerbit'],
             'tahun_terbit' => $request['tahun_terbit'],
-            'stok' => $request['stok'],
+            'stok'         => $request['stok'],
         ]);
 
         return redirect('/buku');
@@ -57,7 +57,8 @@ class BukuController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $buku = DB::table('buku')->where('id', $id)->get();
+        return view('buku.show', compact('buku'));
     }
 
     /**

@@ -1,8 +1,6 @@
 @extends('master')
 
-@section('title', 'Data Petugas')
-
-
+@section('title', 'Data Buku')
 @section('content')
 
 @push('css')
@@ -37,7 +35,7 @@
                 <div class="col-lg-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Table Data buku</h3>
+                            <h3 class="card-title">Table Data Buku</h3>
                         </div>
                         <!-- /.card-header -->
                         <table class="table table-head-fixed text-nowrap">
